@@ -10,15 +10,42 @@
     background-color: #BE1622;
     color:white;
     width:100%;
+    vertical-align: top;
+}
+
+.showForB {
+    vertical-align: top;
+    padding: 15px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .showForB {
+        display: none;
+        
+    }   
+}
+@media only screen and (min-width: 1000px) {    
+    .showForS {
+        display: none;
+    }
+  
+}
+
+#s_title {
+    vertical-align: top;
+    padding-top: 15px;
+    
+}
+.link {
+    text-decoration: none;
+    color:white;
+    
 }
 
 
-
-table, td, tr {
-    
+table, td, tr {   
     padding: 5px;
-    width:100%;
-    
+    width:100%;  
 }
 
 #products_grid {      
@@ -30,4 +57,20 @@ table, td, tr {
     width:100%;
     padding-top:15px;   
     gap: 5px;     
+}
+
+#footer {
+    background-color: #34516C;
+    height:200px;
+    padding-left: 25px;
+}
+
+.f_h2 {
+    color:white;
+}
+
+.f_descr {
+    width:33%;
+    text-align: left;
+    color:white;
 }
