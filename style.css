@@ -62,7 +62,7 @@ table, td, tr {
 #footer {
     background-color: #34516C;
     height:200px;
-    padding-left: 25px;
+    padding-left: 50px;
 }
 
 .f_h2 {
@@ -73,4 +73,32 @@ table, td, tr {
     width:33%;
     text-align: left;
     color:white;
+}
+
+#tabloid {      
+    text-align: center;
+    padding: 1px;
+    display: grid;   
+    margin: auto auto;
+    max-width: max-content;
+    padding-top:15px;
+    width:100%;
+    gap: 5px;
+    grid-template-columns: auto auto auto auto;  
+}
+
+.zoom { 
+    background-color: rgb(255, 255, 255);
+    transition: transform .2s;   
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+
+.zoom:hover {
+    transform: scale(1.05); 
+    background-color: rgb(255, 255, 255);
+    outline: 2px solid rgb(145, 13, 13);
+    border-radius: 10px;
+    
 }
