@@ -1,6 +1,6 @@
-document.onload = "";
 
-function render_cart() {
+
+/* function render_cart() {
     document.getElementById("main_block").innerHTML = "";
     let prod_id;
     let 
@@ -12,7 +12,7 @@ function render_cart() {
 
 
 }
-}
+} */
 /* 
 var div = document.createElement("div");
     let prod_index = String(i + 1);
@@ -22,3 +22,18 @@ var div = document.createElement("div");
     div.innerHTML = code;
     console.log(code);    //debugging  
     document.getElementById("tabloid").appendChild(div); */
+    document.onload = csvToArr(csvString);
+    /* const csvString = `
+    Series_reference,Period,Data_value,Suppressed,STATUS,UNITS,Magnitude,Subject,Group,Series_title_1,Series_title_2,Series_title_3,Series_title_4,Series_title_5
+    BDCQ.SEA1AA,2011.06,80078,,F,Number,0,Business Data Collection - BDC,Industry by employment variable,Filled jobs,"Agriculture, Forestry and Fishing",Actual,,
+    BDCQ.SEA1AA,2011.09,78324,,F,Number,0,Business Data Collection - BDC,Industry by employment variable,Filled jobs,"Agriculture, Forestry and Fishing",Actual,,
+    BDCQ.SEA1AA,2011.12,85850,,F,Number,0,Business Data Collection - BDC,Industry by employment variable,Filled jobs,"Agriculture, Forestry and Fishing",Actual,,
+    ` */
+    function csvToArr(stringValue) {
+        // Add logic
+        const formattedString = stringValue.trim().split('\n');
+        console.log('formattedString: ', formattedString)
+      }
+
+      
+      
