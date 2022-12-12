@@ -20,7 +20,16 @@
 </head>
 
 <body>
-    <div id="main_block"></div>
+
+    <div id="cart"></div>
+    <br><br><br>
+    <div style="text-align:center">Total:</div>
+    <div style="text-align: center;color:red" id="total"></div>
+    <br><br>
+    <div style="text-align:center;padding-bottom: 300px;">
+        <button style="height:100px;width:400px" onclick="clear_cart()">Clear all</button>
+        <button style="height:100px;width:400px">Check Out</button>
+    </div>
 
     <footer>
         <div id="footer">
@@ -47,25 +56,7 @@
         </div>
     </footer>
 </body>
-<script>
-    /* var fr=new FileReader(); */
-    var reader = new FileReader();
-    
-    reader.readAsText('data.csv');
-    let csvString = reader.result;
-    document.onload = csvToArr(csvString);  
-    function csvToArr(stringValue) {
-        // Add logic
-        const [keys,...rest] = stringValue.trim().split('\n').map((item) => item.split(','));
-        /* console.log('formattedString: ', formattedString) */
-        console.log('CSV keys: ', keys);
-  console.log('CSV values: ', rest);
-    }
-    
-   
-  
-  
-
+<script src="cart.js">
 </script>
 
 </html>

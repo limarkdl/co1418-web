@@ -114,10 +114,11 @@ var UCLan_Tshirt = [
     {typeIs:'UCLan Logo Tshirt',colorIs:'White',descriptionIs:'Cotton authentic character and practicality are combined in this summery t-shirt for students that goes with everything to create casual looks. Perfect for those summer days',priceIs:' Only £19.99',imagesrcIs:'tshirt/tshirt (35).jpg'}
 ];
 
-
+let prodIsDisplayed = "UCLan_Hoodie";
 
 function render_grid(name_of_product) {
     document.getElementById("tabloid").innerHTML = "";
+    prodIsDisplayed = name_of_product;
     for (let i = 0; i < name_of_product.length;i++) {
         var div = document.createElement("div");
         let code = `<div class="main-list"> 
@@ -133,14 +134,14 @@ function render_grid(name_of_product) {
                     <td>`+ name_of_product[i].colorIs +`</td>
                </tr>
                <tr>
-                    <td style="width:300px">`+ name_of_product[i].descriptionIs +`</td>
+                    <td style="width:250px">`+ name_of_product[i].descriptionIs +`</td>
                </tr>
                <tr>
                <td><table>
                <tbody>
                <tr>
                     <td>`+ name_of_product[i].priceIs+`</td>
-                    <td><button style="width:100px;height:50px">BUY</button></td>
+                    <td><button id="bt_buy`+i+`" onclick="itemAddToCart(`+ i +`)" style="width:100px;height:50px">BUY</button></td>
                </tr>
                </tbody>
                </table></td>
@@ -153,11 +154,40 @@ function render_grid(name_of_product) {
         div.innerHTML = code;
         console.log(code);    //debugging
         document.getElementById("tabloid").appendChild(div);
+
     }
 
 };
 
 document.onload = render_grid(UCLan_Hoodie);
+
+
+var CART = [];
+let index = localStorage.length;
+function itemAddToCart(i) {
+    var obj = {
+        name_of_product: prodIsDisplayed[i].typeIs,
+        id: i
+    };
+    
+    CART.push(obj);
+    window.localStorage.setItem(index, JSON.stringify(obj));
+    console.log(window.localStorage.getItem(String(index)));
+    console.log(CART);
+    console.log(localStorage);
+    
+    /* alert("SUCCESSFULLY ADDED"); */
+    
+    document.getElementById("bt_buy"+i).innerText = "ADDED";
+    document.getElementById("bt_buy"+i).style.backgroundColor = "green";
+    setTimeout(() => {
+        document.getElementById("bt_buy"+i).innerText = "BUY";
+        document.getElementById("bt_buy"+i).style.backgroundColor = "";
+      }, "1000");
+    index++;
+}
+
+
 
 
 

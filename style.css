@@ -3,7 +3,7 @@
     padding: 0;
     font-family: sans-serif;
 
-    /*border: 1px solid black;*/
+    /* border: 1px solid black; */
 }
 
 .header {
@@ -11,6 +11,7 @@
     color:white;
     width:100%;
     vertical-align: top;
+    
 }
 
 .showForB {
@@ -63,6 +64,7 @@ table, td, tr {
     background-color: #34516C;
     height:200px;
     padding-left: 50px;
+    
 }
 
 .f_h2 {
@@ -101,4 +103,14 @@ table, td, tr {
     outline: 2px solid rgb(145, 13, 13);
     border-radius: 10px;
     
+}
+
+.index_vid {
+    width: 956px;
+    height: 478px;
+}
+
+#cart_testing {
+    padding-top: 100px;
+    padding-bottom: 200px;
 }
