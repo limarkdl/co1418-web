@@ -119,7 +119,7 @@ function cartRender() {
     var total = 0;
     document.getElementById("cart").innerHTML = "";
     if(localStorage.length == 0) {
-        document.getElementById("cart").innerHTML = `<div style="height:500px;text-align:center;padding-top:200px">CART IS EMPTY<br><p style="color:black;font-size:large">Please, add at least one product to continue</p></div>`;
+        document.getElementById("cart").innerHTML = `<div style="text-align:center;padding-top:100px">CART IS EMPTY<br><p style="color:black;font-size:large">Please, add at least one product to continue</p></div>`;
         document.getElementById("cart").style.textAlign = "center"
         document.getElementById("cart").style.fontSize = "xx-large";
         document.getElementById("cart").style.color = "red";
@@ -132,8 +132,8 @@ function cartRender() {
         console.log(localStorage.getItem(i));
         let current_obj = JSON.parse(localStorage.getItem(i));
         let current_id = current_obj.id;
-        let n_o_p;
-        switch (current_obj.name_of_product) {
+
+        /*switch (current_obj.name_of_product) {
             case "UCLan Hoodie":
                 n_o_p = "UCLan_Hoodie";
                 break;
@@ -143,27 +143,27 @@ function cartRender() {
             case "UCLan Logo Tshirt":
                 n_o_p = "UCLan_Tshirt";
             
-        }
-        let price = n_o_p[current_id].priceIs;
+        }*/
+        let price = UCLan_Hoodie[current_id].priceIs;
         console.log(current_id);
-        console.log(n_o_p);
+        console.log(UCLan_Hoodie);
         let code = ` <table style="text-align:center;width:60%;margin:auto">
 
         <tr>
-            <td style="width:30%;height:100px"><img src="`+ n_o_p[current_id].imagesrcIs +`" alt="error" width="100px" height="100px"></td>
+            <td style="width:30%;height:100px"><img src="`+ UCLan_Hoodie[current_id].imagesrcIs +`" alt="error" width="100px" height="100px"></td>
             <td>
                 <table>
 
                     <tr>
-                        <td>`+ n_o_p[current_id].typeIs +`</td>
+                        <td>`+ UCLan_Hoodie[current_id].typeIs +`</td>
                         <td>
                             <table style="height:100px;width:300px">
 
                                 <tr>
-                                    <td>`+ n_o_p[current_id].colorIs +`</td>
+                                    <td>`+ UCLan_Hoodie[current_id].colorIs +`</td>
                                 </tr>
                                 <tr>
-                                    <td>`+ price.slice(5) +`</td>
+                                    <td>`+ UCLan_Hoodie[current_id].priceIs +`</td>
                                 </tr>
                                 <tr>
                                 <td><button onclick="deleteItem(`+i+`)" >REMOVE</button></td>
@@ -184,9 +184,11 @@ function cartRender() {
         div.id = "div" + String(i);
         div.innerHTML = code;
         document.getElementById("cart").appendChild(div);
+
         total += parseFloat(price.slice(7));
+
         console.log(total);
-        document.getElementById("total").innerText = total;
+        document.getElementById("total").innerText = total.toFixed(2);
         }
         
     }
