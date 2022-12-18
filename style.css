@@ -11,7 +11,7 @@
     color:white;
     width:100%;
     vertical-align: top;
-    display:
+
     
 }
 
@@ -114,4 +114,8 @@ table, td, tr {
 #cart_testing {
     padding-top: 100px;
     padding-bottom: 200px;
+}
+
+.option_prod {
+    font-size: large;
 }
