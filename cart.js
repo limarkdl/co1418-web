@@ -134,10 +134,9 @@ function cartRender() {
 
     for (let i = 0; i < 100; i++) {
         if (localStorage.getItem(i) != null) {
-            var div = document.createElement("div");
-            console.log(localStorage.getItem(i));
-            let current_obj = JSON.parse(localStorage.getItem(i));
-            let current_id = current_obj.id;
+            var div = document.createElement("div");                        // Creates current element to
+            let current_obj = JSON.parse(localStorage.getItem(i));          // Stores parsed object from localStorage
+            let current_id = current_obj.id;                                // Stores id of object from localStorage
             let name_of_product = current_obj.name_of_p;
             switch (current_obj.name_of_p) {                                // Checks which type of product is current localStorage's object
                 case "UCLan Hoodie":
@@ -156,7 +155,7 @@ function cartRender() {
             let code = ` <table style="text-align:center;width:60%;margin:auto">
 
         <tr>
-            <td style="width:30%;height:100px"><img src="`+ products[name_of_product].at(current_id).imagesrcIs + `" alt="error" width="100px" height="100px"></td>
+            <td style="width:30%;height:100px"><img src="`+ products[name_of_product].at(current_id).imagesrcIs + `" alt="product image" width="100px" height="100px"></td>
             <td>
                 <table>
 

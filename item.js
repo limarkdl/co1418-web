@@ -113,5 +113,33 @@ var products = {'UCLan_Tshirt': [
 ]
 }                                                                           /* SpreadSheet object to store our data. Since we need to be able to have an access to this 
                                                                             SpreadSheet with dynamical names, it's an object */
+document.onload = item_render();
 
+function item_render() {
+    let current_obj = JSON.parse(sessionStorage.getItem('Item'));             // Gets chosen item from localStorage
+    name_of_product = current_obj.type_of;                                  // Creates a variable for storing type_of chosen product
+    var div = document.createElement("div");                                // Creating grid element
+        let code = `<table style="text-align:center;padding: 100px 0px 100px 0px">
+        <tbody>
+        <tr>
+        <td><img src="`+ products[name_of_product][current_obj.id].imagesrcIs + `" alt="product image" width="400px" height="400px"></td>
+        </tr>
+        <tr>
+        <td><h1>`+products[name_of_product][current_obj.id].typeIs+`</h1></td>
+        </tr>
+        <tr>
+        <td><h3>`+products[name_of_product][current_obj.id].colorIs+`</h3></td>
+        </tr>
+        <tr>
+        <td><p style="width:40%;margin-left: auto;margin-right:auto">`+products[name_of_product][current_obj.id].descriptionIs+`</p></td>
+        </tr>
+        <tr>
+        <td><h2>`+products[name_of_product][current_obj.id].priceIs+`</h2></td>
+        </tr>
+        </tbody>
+        </table>`;                                                          // Dynamic code for grid element, which allows us to display chosen item                                       // Applying id for each grid element, to link every div element and item's ID with each other
+        div.innerHTML = code;                                               // Inserting completed code to created grid element
+        document.getElementById("item_table").appendChild(div);             // Appends element to the table
+
+}
 

@@ -132,10 +132,10 @@ function render_grid(name_of_product) {                                     // F
 <table class="zoom">
                <tbody>
                <tr>
-                    <td><img src="`+ products[name_of_product][i].imagesrcIs + `" alt="error" width="200px" height="200px"></td>
+                    <td><img src="`+ products[name_of_product][i].imagesrcIs + `" alt="product image" width="200px" height="200px"></td>
                </tr>
                <tr>
-                    <td><b style="font-size: x-large">`+ products[name_of_product][i].typeIs + `</b></td>
+                    <td><a href="item.html" style="font-size: x-large">`+ products[name_of_product][i].typeIs + `</a></td>
                </tr>
                <tr>
                     <td>`+ products[name_of_product][i].colorIs + `</td>
@@ -185,9 +185,12 @@ function itemAddToCart(i) {
 }
 
 function item_redirect(type, i) {
-    var chosen = [type, i];
-    localStorage.setItem(type,String(i));
-    console.log(localStorage.getItem(type));
+    var chosen = {
+        type_of: type, 
+        id: i
+    };
+    sessionStorage.setItem('Item',JSON.stringify(chosen) );
+    console.log(sessionStorage.getItem('Item'));
 }
 
 

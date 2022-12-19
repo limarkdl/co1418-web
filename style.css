@@ -2,18 +2,42 @@
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-
-     /*border: 1px solid black;*/
+    
+     /* border: 1px solid black; */
 }
+
+  
 
 .header {
     background-color: #BE1622;
     color:white;
     width:100%;
     vertical-align: top;
-
+    ;
     
 }
+
+#menu_logo {
+    padding: 10px;
+    font-size: 14px;
+    width:50px;height:50px
+}
+  .object {
+    position: absolute;   
+    background-color: #ffffff;
+    min-width: 80px;
+    display: none;
+
+  }
+
+  .object a {
+    color: black;
+    padding: 8px;
+    text-decoration: none;
+    display:grid;
+  }
+ 
+  .isShowed {display:block;} 
 
 .showForB {
     vertical-align: top;
@@ -109,6 +133,7 @@ table, td, tr {
 .index_vid {
     width: 956px;
     height: 478px;
+    border: none;
 }
 
 #cart_testing {
