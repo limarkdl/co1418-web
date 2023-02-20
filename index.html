@@ -1,98 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
     <title>Main Page</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="newStyle.css">
 </head>
-
 <body>
-    <div class="header">
-        <table class="header">
-            <tr>
-                <td style="width:25%"><img src="UCLan_Header.svg" alt="UCLan logo"></td>
-                <td id="s_title"><b style="font-size: xx-large;">Student Shop</b></td>
-                <td class="showForB"><a class="link" href="index.html">Home</a></td>
-                <td class="showForB"><a class="link" href="products.html">Products</a></td>
-                <td class="showForB"><a class="link" href="cart.html">Cart</a></td>
-                <td class="showForS"><img id="menu_logo" onclick="trigger_menu()" src="menu.svg" alt="menu">
-                    <div id="menu_list" class="object">
-                        <a href="index.html">Home</a>
-                        <a href="products.html">Products</a>
-                        <a href="cart.html">Cart</a>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <table class="prod_list" style="width:980px;margin:auto;text-align: left;padding-bottom: 15px;">
-        <tbody>
-            <tr>
-                <td>
-                    <h1 style="color:#34516C">Where opportunity creates success</h1><br>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p>Every student at The University of Central Lancashire is automatically a member of the Students'
-                        Union. We're here to make life better for students - inspiring you to succeed and achieve your
-                        goals.</p><br>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <p>Everything you needto know about UCLan Students' Union. Your membership starts here</p><br>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h2 style="color:#f2be1a">Together</h2>
-                </td>
-            </tr>
-            <tr>
-                <td><iframe src="https://www.youtube.com/embed/PF-wXuJG9ao" class="index_vid"></iframe>
-                </td>
-            </tr>
-            <tr>
-                <td><br>
-                    <h2 style="color:#f2be1a">Join our global community</h2><br>
-                </td>
-            </tr>
-            <tr>
-                <td><iframe src="https://www.youtube.com/embed/i2CRunZv9CU" class="index_vid"></iframe>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
+<div class="wrapper">
+    <header>
+        <div class="headerContainer">
+            <img class="headerContent" src="UCLan_Header.svg" alt="UCLan">
+            <h2 class="forWide">Student Shop</h2>
+        </div>
+        <div class="headerContainer">
+            <div class="menuContainer forWide">
+                <div class="menuElement"><a href="index.html">Home</a></div>
+                <div class="menuElement"><a href="products.html">Products</a></div>
+                <div class="menuElement"><a href="cart.html">Cart</a></div>
+            </div>
+            <div class="menuContainer forNarrow">
+                <img class="headerContent" src="menu.svg" onclick="toggleMenu()">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="menuContent disabled">
+            <a href="index.html">Main page</a>
+            <a href="products.html">Products</a>
+            <a href="cart.html">Cart</a>
+        </div>
+        <div class="mainContent">
+            <h1 class="header">Where opportunity creates success</h1>
+            <p>Every student at The University of Central Lancashire is automatically a member of the Student's Union.
+                <br>We're here to make life better for students — inspiring you to succeed and achieve your goals.</p>
+            <p>Everything you need to know about UCLan Student's Union. Your membership starts here.</p>
+            <h2>Together</h2>
+            <iframe src="https://www.youtube.com/embed/PF-wXuJG9ao"></iframe>
+            <h2>Join our global community</h2>
+            <iframe src="https://www.youtube.com/embed/i2CRunZv9CU"></iframe>
+        </div>
+    </main>
     <footer>
-        <div id="footer">
-            <table style="text-align:center;vertical-align:middle">
-                <tr>
-                    <td class="f_descr">
-                        <h2 class="f_h2">Links</h2>
-                    </td>
-                    <td class="f_descr">
-                        <h2 class="f_h2">Contact</h2>
-                    </td>
-                    <td class="f_descr">
-                        <h2 class="f_h2">Location</h2>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="f_descr"><a href="https://www.uclansu.co.uk/">Student's Union</a></td>
-                    <td class="f_descr">Email: suinformation@uclan.ac.uk<br>Phone: 01772 89 3000</td>
-                    <td class="f_descr">University of Central Lancashire Students' Union.<br>Fylde Road, Preston, PR1
-                        7BY<br>Registered in England<br>Company Number: 7623917<br>Registered Charity Number: 1142616
-                    </td>
-                </tr>
-            </table>
+        <div class="footerHeader">Links:
+            <div class="footerHeaderContent">
+                <a href="https://www.uclansu.co.uk/" target="_blank">Student's Union</a>
+            </div>
+        </div>
+        <div class="footerHeader">Contact:
+            <div class="footerHeaderContent">
+                <p>Email: <a href="mailto:suinformation@uclan.ac.uk">suinformation@uclan.ac.uk</a><br>
+                Phone: 01772 89 3000</p>
+            </div>
+        </div>
+        <div class="footerHeader">Location:
+            <div class="footerHeaderContent"><p>University of Central Lancashire Students' Union.<br>Fylde Road, Preston, PR1 7BY
+                <br>Registered in England<br>Company Number: 7623917<br>Registered Charity Number: 1142616</p>
+            </div>
         </div>
     </footer>
-    <script src="index_menu.js"></script>
+</div>
 </body>
-
-
+<script src="script.js"></script>
 </html>

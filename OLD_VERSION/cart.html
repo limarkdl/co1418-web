@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Cart</title>
+    
+</head>
+
+<body>
+    <div class="header">
+        <table class="header">
+            <tr>
+                <td style="width:25%"><img src="UCLan_Header.svg" alt="UCLan logo"></td>
+                <td id="s_title"><b style="font-size: xx-large;">Student Shop</b></td>
+                <td class="showForB"><a class="link" href="index.html">Home</a></td>
+                <td class="showForB"><a class="link" href="products.html">Products</a></td>
+                <td class="showForB"><a class="link" href="cart.html">Cart</a></td>
+                <td class="showForS"><img id="menu_logo" onclick="trigger_menu()" src="menu.svg" alt="menu">
+                    <div id="menu_list" class="object">
+                        <a href="index.html">Home</a>
+                        <a href="products.html">Products</a>
+                        <a href="cart.html">Cart</a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div style="width: 60%;text-align:center;color:#f2be1a;padding-top: 50px;">
+        <h2>Shopping cart</h2>
+    </div>
+    <div id="cart"></div>
+    <br><br><br>
+    <div style="text-align:center">Total:</div>
+    <div style="text-align: center;color:red" id="total"></div>
+    <br><br>
+    <div style="text-align:center;padding-bottom: 300px;">
+        <button style="height:100px;width:400px" onclick="clear_cart()">Clear all</button>
+        <button style="height:100px;width:400px">Check Out</button>
+    </div>
+
+    <footer>
+        <div id="footer">
+            <table style="text-align:center;vertical-align:middle">
+                <tr>
+                    <td class="f_descr">
+                        <h2 class="f_h2">Links</h2>
+                    </td>
+                    <td class="f_descr">
+                        <h2 class="f_h2">Contact</h2>
+                    </td>
+                    <td class="f_descr">
+                        <h2 class="f_h2">Location</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="f_descr"><a href="https://www.uclansu.co.uk/">Student's Union</a></td>
+                    <td class="f_descr">Email: suinformation@uclan.ac.uk<br>Phone: 01772 89 3000</td>
+                    <td class="f_descr">University of Central Lancashire Students' Union.<br>Fylde Road, Preston, PR1
+                        7BY<br>Registered in England<br>Company Number: 7623917<br>Registered Charity Number: 1142616
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </footer>
+    <script src="cart.js"></script>
+    <script src="index_menu.js"></script>
+</body>
+
+</html>
