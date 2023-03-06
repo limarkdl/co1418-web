@@ -91,7 +91,6 @@ a {
 
 header {
     background-color: var(--primary-red);
-    padding: 10px;
     display: flex;
     justify-content: space-between;
     color: var(--white);
@@ -177,16 +176,13 @@ footer {
 }
 
 .gridElement {
-    width: 150px;
+    width: 180px;
     text-align: center;
     border: 1px solid black;
 
 }
 
-.productDesc {
-    max-height: 20%;
-    overflow: auto;
-}
+
 
 .gridElement p {
     padding: 10px;

@@ -117,6 +117,21 @@ let products = {
 }
 
 
+function renderGrid(product) {
+    for(let i = 0;i < 15;i++) {
+        let el = document.createElement('div');
+        el.innerHTML = `<div id="products.UCLan_Hoodie[1]" class="gridElement">
+                <img src="/hoodies/hoodie%20(1).jpg" alt="productPhoto">
+                <h4>UCLan Hoodie</h4>
+                    <b style="font-size: smaller">Light Blue</b>
+                <p class="productDesc" style="font-size:x-small">Cotton authentic character and practicality are combined in this comfy
+                    warm and luxury hoodie for students that goes with everything to create casual looks</p>
+                    <div style="background-color: #006250" >Add to cart</div>
+            </div>`;
+        document.getElementById('productsGrid').appendChild(el);
+    }
+}
+
 
 function toggleMenu() {
     document.getElementsByClassName('menuContent')[0].classList.toggle('active');
