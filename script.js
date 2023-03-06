@@ -117,18 +117,46 @@ let products = {
 }
 
 
+const grid = document.getElementById('productsGrid');
+
+const TShirt = 'UCLan_Tshirt';
+const Jumper = 'UCLan_Jumper';
+const Hoodie = 'UCLan_Hoodie';
+
 function renderGrid(product) {
-    for(let i = 0;i < 15;i++) {
+    let progressiveDelay = 0;
+    grid.innerHTML = '';
+    let pathToProduct;
+    let pathToObj;
+    switch (product) {
+        case 'Hoodie':
+            pathToProduct = '/hoodies/hoodie%20(';
+            pathToObj = Hoodie;
+            break;
+        case 'Jumper':
+            pathToProduct = '/jumpers/jumper%20(';
+            pathToObj = Jumper;
+            break;
+        case 'TShirt':
+            pathToProduct = '/tshirt/tshirt%20(';
+            pathToObj = TShirt;
+            break;
+        default:
+            console.log('ERROR');
+            return -1;
+    }
+    for(let i = 1;i < 15;i++) {
         let el = document.createElement('div');
-        el.innerHTML = `<div id="products.UCLan_Hoodie[1]" class="gridElement">
-                <img src="/hoodies/hoodie%20(1).jpg" alt="productPhoto">
-                <h4>UCLan Hoodie</h4>
+        el.innerHTML = `<div id="div`+ i +`" class="gridElement">
+                <img src="`+ pathToProduct + i +`).jpg" alt="productPhoto">
+                <h4>UCLan `+ product +`</h4>
                     <b style="font-size: smaller">Light Blue</b>
                 <p class="productDesc" style="font-size:x-small">Cotton authentic character and practicality are combined in this comfy
                     warm and luxury hoodie for students that goes with everything to create casual looks</p>
-                    <div style="background-color: #006250" >Add to cart</div>
+                    <div style="background-color: #006250;border-radius: inherit" >Add to cart</div>
             </div>`;
-        document.getElementById('productsGrid').appendChild(el);
+        grid.appendChild(el);
+        progressiveDelay += 0.5;
     }
 }
 

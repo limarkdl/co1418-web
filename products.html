@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="newStyle.css">
 </head>
-<body>
+<body onload="renderGrid('Hoodie')">
 <div class="wrapper">
     <header>
         <div class="headerContainer">
@@ -31,7 +31,9 @@
             <a href="cart.html">Cart</a>
         </div>
         <div class="mainContent">
-            <div>Sorting: T-Shirt Jumpers Hoodies</div>
+            <button onclick="renderGrid('Hoodie')">Hoodies</button>
+            <button onclick="renderGrid('Jumper')">Jumpers</button>
+            <button onclick="renderGrid('TShirt')">T-Shirts</button>
             <div id="productsGrid">
 
             </div>
