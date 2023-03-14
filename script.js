@@ -116,7 +116,9 @@ let products = {
     ]
 }
 
-
+class Class {
+    
+}
 const grid = document.getElementById('productsGrid');
 
 const TShirt = 'UCLan_Tshirt';
@@ -163,5 +165,4 @@ function renderGrid(product) {
 
 
 function toggleMenu() {
-    document.getElementsByClassName('menuContent')[0].classList.toggle('active');
-}
+    document.getElementsByClassName('menuContent')[0].classList.toggle('
