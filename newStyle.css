@@ -182,8 +182,6 @@ footer {
     border-radius: 10px;
 }
 
-
-
 .gridElement p {
     padding: 10px;
 }
@@ -203,17 +201,5 @@ footer {
     justify-content: center;
     gap: 10px;
 }
-/*body::-webkit-scrollbar {
-    width: 12px;
-}
-
-body::-webkit-scrollbar-track {
-    background-color: var(--silver);
-}
-
-body::-webkit-scrollbar-thumb {
-    background-color: var(--primary-red);
-}*/
-
 
 

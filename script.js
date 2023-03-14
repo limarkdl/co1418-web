@@ -124,50 +124,44 @@ const Jumper = 'UCLan_Jumper';
 const Hoodie = 'UCLan_Hoodie';
 
 function renderGrid(product) {
-    let progressiveDelay = 0;
     grid.innerHTML = '';
     let pathToProduct;
     let pathToObj;
+    let currentProdType;
     switch (product) {
         case 'Hoodie':
             pathToProduct = '/hoodies/hoodie%20(';
             pathToObj = Hoodie;
+            currentProdType = products.UCLan_Hoodie;
             break;
         case 'Jumper':
             pathToProduct = '/jumpers/jumper%20(';
             pathToObj = Jumper;
+            currentProdType = products.UCLan_Jumper;
             break;
         case 'TShirt':
             pathToProduct = '/tshirt/tshirt%20(';
             pathToObj = TShirt;
+            currentProdType = products.UCLan_Tshirt;
             break;
         default:
             console.log('ERROR');
             return -1;
     }
-    for(let i = 1;i < 15;i++) {
+    for(let i = 1;i < currentProdType.length;i++) {
         let el = document.createElement('div');
         el.innerHTML = `<div id="div`+ i +`" class="gridElement">
                 <img src="`+ pathToProduct + i +`).jpg" alt="productPhoto">
-                <h4>UCLan `+ product +`</h4>
-                    <b style="font-size: smaller">Light Blue</b>
-                <p class="productDesc" style="font-size:x-small">Cotton authentic character and practicality are combined in this comfy
-                    warm and luxury hoodie for students that goes with everything to create casual looks</p>
+                <h4>UCLan `+ currentProdType[i].colorIs +`</h4>
+                    <b style="font-size: smaller"></b>
+                <p class="productDesc" style="font-size:x-small">`+ currentProdType[i].descriptionIs + `</p>
                     <div style="background-color: #006250;border-radius: inherit" >Add to cart</div>
             </div>`;
         grid.appendChild(el);
-        progressiveDelay += 0.5;
     }
 }
 
 
 function toggleMenu() {
     document.getElementsByClassName('menuContent')[0].classList.toggle('active');
-}
-
-function renderProducts(type) {
-    let grid = document.getElementById('productsGrid');
-    for (let i = 0;i < products.type.length;i++) {
-
-    }
 }
