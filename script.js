@@ -143,6 +143,7 @@ function renderGrid(product) {
             break;
         case 'TShirt':
             pathToProduct = '/tshirt/tshirt%20(';
+
             pathToObj = TShirt;
             currentProdType = products.UCLan_Tshirt;
             break;
@@ -163,6 +164,6 @@ function renderGrid(product) {
     }
 }
 
-
 function toggleMenu() {
-    document.getElementsByClassName('menuContent')[0].classList.toggle('
+    document.getElementsByClassName('menuContent')[0].classList.toggle('active');
+}
