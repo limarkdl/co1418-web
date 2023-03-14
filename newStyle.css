@@ -202,4 +202,24 @@ footer {
     margin: 20px 0;
 }
 
+.gridElement button {
+    background-color: var(--grass);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
+    border-radius: inherit;
+}
+
+.gridElement button:hover {
+    background-color: var(--forest);
+}
+.gridElement button:focus {
+    outline: 2px solid var(--forest);
+}
+
+
+
+
 

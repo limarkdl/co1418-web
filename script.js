@@ -1,4 +1,4 @@
-let products = {
+const products = {
     'UCLan_Tshirt': [
         { typeIs: 'UCLan Logo Tshirt', colorIs: 'Navy Blue New', descriptionIs: 'Cotton authentic character and practicality are combined in this summery t-shirt for students that goes with everything to create casual looks. Perfect for those summer days', priceIs: ' Only £19.99', imagesrcIs: 'tshirt/tshirt (1).jpg' },
         { typeIs: 'UCLan Logo Tshirt', colorIs: 'Rusty Red New', descriptionIs: 'Cotton authentic character and practicality are combined in this summery t-shirt for students that goes with everything to create casual looks. Perfect for those summer days', priceIs: ' Only £19.99', imagesrcIs: 'tshirt/tshirt (2).jpg' },
@@ -116,9 +116,7 @@ let products = {
     ]
 }
 
-class Class {
-    
-}
+
 const grid = document.getElementById('productsGrid');
 
 const TShirt = 'UCLan_Tshirt';
@@ -151,19 +149,45 @@ function renderGrid(product) {
             console.log('ERROR');
             return -1;
     }
-    for(let i = 1;i < currentProdType.length;i++) {
+    for (let i = 1; i < currentProdType.length; i++) {
         let el = document.createElement('div');
-        el.innerHTML = `<div id="div`+ i +`" class="gridElement">
-                <img src="`+ pathToProduct + i +`).jpg" alt="productPhoto">
-                <h4>UCLan `+ currentProdType[i].colorIs +`</h4>
+        el.innerHTML = `<div id="div` + i + `" class="gridElement">
+                <img src="` + pathToProduct + i + `).jpg" alt="productPhoto">
+                <h4>UCLan ` + currentProdType[i].colorIs + `</h4>
                     <b style="font-size: smaller"></b>
-                <p class="productDesc" style="font-size:x-small">`+ currentProdType[i].descriptionIs + `</p>
-                    <div style="background-color: #006250;border-radius: inherit" >Add to cart</div>
+                <p class="productDesc" style="font-size:small">` + currentProdType[i].descriptionIs + `</p>
+                    <button onclick="itemAddToCart('`+ pathToObj + `', `+ i +`)">Add to cart</button>
             </div>`;
         grid.appendChild(el);
     }
 }
 
+
+
 function toggleMenu() {
     document.getElementsByClassName('menuContent')[0].classList.toggle('active');
+}
+
+function itemAddToCart(product, index) {
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    if (cart == null) {
+        cart = [];
+    }
+    cart.push({ product: product, index: index });
+    localStorage.setItem('cart', JSON.stringify(cart));
+    console.log(cart);
+}
+
+function getCart() {
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    if (cart == null) {
+        cart = [];
+    }
+    return cart;
+}
+
+function addItemToCart(product, index) {
+    let cart = getCart();
+    cart.push({ product: product, index: index });
+    localStorage.setItem('cart', JSON.stringify(cart));
 }
