@@ -1,4 +1,4 @@
-let products = {
+const products = {
     'UCLan_Tshirt': [
         { typeIs: 'UCLan Logo Tshirt', colorIs: 'Navy Blue New', descriptionIs: 'Cotton authentic character and practicality are combined in this summery t-shirt for students that goes with everything to create casual looks. Perfect for those summer days', priceIs: ' Only £19.99', imagesrcIs: 'tshirt/tshirt (1).jpg' },
         { typeIs: 'UCLan Logo Tshirt', colorIs: 'Rusty Red New', descriptionIs: 'Cotton authentic character and practicality are combined in this summery t-shirt for students that goes with everything to create casual looks. Perfect for those summer days', priceIs: ' Only £19.99', imagesrcIs: 'tshirt/tshirt (2).jpg' },
@@ -212,14 +212,15 @@ function addItemToCart(type, id) {
     console.log(cart);
 }
 
+
 function toggleMenu() {
     document.getElementsByClassName('menuContent')[0].classList.toggle('active');
 }
 
-function renderProducts(type) {
-    let grid = document.getElementById('productsGrid');
-    for (let i = 0;i < products.type.length;i++) {
-
+function itemAddToCart(product, index) {
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    if (cart == null) {
+        cart = [];
     }
 }
 
@@ -269,5 +270,18 @@ function showItem(type,id) {
     let pathToProduct = result[0];
     let currentObjArray = result[1];
     let item = document.createElement('div');
+}
 
+function getCart() {
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    if (cart == null) {
+        cart = [];
+    }
+    return cart;
+}
+
+function addItemToCart(product, index) {
+    let cart = getCart();
+    cart.push({ product: product, index: index });
+    localStorage.setItem('cart', JSON.stringify(cart));
 }

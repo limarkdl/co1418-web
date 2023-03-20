@@ -157,7 +157,6 @@ footer {
     color: var(--white);
     height: fit-content;
     display: flex;
-
     justify-content: space-around;
     padding: 10px;
     gap: 20px;
@@ -182,8 +181,6 @@ footer {
     border-radius: 10px;
 }
 
-
-
 .gridElement p {
     padding: 10px;
 }
@@ -204,17 +201,26 @@ footer {
     gap: 10px;
     padding: 20px 0;
 }
-/*body::-webkit-scrollbar {
-    width: 12px;
+
+
+.gridElement button {
+    background-color: var(--grass);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
+    border-radius: inherit;
 }
 
-body::-webkit-scrollbar-track {
-    background-color: var(--silver);
+.gridElement button:hover {
+    background-color: var(--forest);
+}
+.gridElement button:focus {
+    outline: 2px solid var(--forest);
 }
 
-body::-webkit-scrollbar-thumb {
-    background-color: var(--primary-red);
-}*/
+
 
 .addToCart {
     background-color: #16a147;
