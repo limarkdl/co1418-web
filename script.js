@@ -123,43 +123,94 @@ const TShirt = 'UCLan_Tshirt';
 const Jumper = 'UCLan_Jumper';
 const Hoodie = 'UCLan_Hoodie';
 
-function renderGrid(product) {
-    let progressiveDelay = 0;
-    grid.innerHTML = '';
-    let pathToProduct;
-    let pathToObj;
+
+function getPathToProduct(product) {
     switch (product) {
         case 'Hoodie':
-            pathToProduct = '/hoodies/hoodie%20(';
-            pathToObj = Hoodie;
-            break;
+            return '/hoodies/hoodie%20(';
         case 'Jumper':
-            pathToProduct = '/jumpers/jumper%20(';
-            pathToObj = Jumper;
-            break;
+            return '/jumpers/jumper%20(';
         case 'TShirt':
+            return '/tshirt/tshirt%20(';
+        default:
+            console.log('ERROR');
+            return -1;
+    }
+}
+
+function getProperties(product) {
+    switch (product) {
+        case 'Hoodie' || 'UCLan Hoodie':
+            pathToProduct = '/hoodies/hoodie%20(';
+            currentObjArray = products.UCLan_Hoodie;
+            return [pathToProduct, currentObjArray];
+            break;
+        case 'Jumper' || 'UCLan Jumper':
+            pathToProduct = '/jumpers/jumper%20(';
+            currentObjArray = products.UCLan_Jumper;
+            return [pathToProduct, currentObjArray];
+            break;
+        case 'TShirt' || 'UCLan Tshirt':
             pathToProduct = '/tshirt/tshirt%20(';
-            pathToObj = TShirt;
+            currentObjArray = products.UCLan_Tshirt;
+            return [pathToProduct, currentObjArray];
             break;
         default:
             console.log('ERROR');
             return -1;
     }
-    for(let i = 1;i < 15;i++) {
-        let el = document.createElement('div');
-        el.innerHTML = `<div id="div`+ i +`" class="gridElement">
-                <img src="`+ pathToProduct + i +`).jpg" alt="productPhoto">
-                <h4>UCLan `+ product +`</h4>
-                    <b style="font-size: smaller">Light Blue</b>
-                <p class="productDesc" style="font-size:x-small">Cotton authentic character and practicality are combined in this comfy
-                    warm and luxury hoodie for students that goes with everything to create casual looks</p>
-                    <div style="background-color: #006250;border-radius: inherit" >Add to cart</div>
-            </div>`;
-        grid.appendChild(el);
-        progressiveDelay += 0.5;
+}
+
+function renderGrid(product) {
+    grid.innerHTML = '';
+    let result = getProperties(product);
+    let pathToProduct = result[0];
+    let currentObjArray = result[1];
+
+    for(let i = 1;i < currentObjArray.length;i++) {
+
+        let gridElement = document.createElement('div');
+        gridElement.classList.add('gridElement');
+
+        let description = document.createElement('p');
+        description.classList.add('productDesc');
+        description.style.fontSize = 'x-small';
+        description.innerHTML = currentObjArray[i].descriptionIs;
+
+        let addToCart = document.createElement('div');
+        addToCart.classList.add('addToCart');
+        addToCart.innerHTML = 'Add to cart';
+        addToCart.onclick = () => {addItemToCart(product, i)};
+        let img = document.createElement('img');
+        img.src = pathToProduct + i + ").jpg";
+        img.alt = "productPhoto";
+
+        let h4 = document.createElement('h4');
+        h4.innerHTML = "UCLan " + product;
+
+        let b = document.createElement('b');
+        b.style.fontSize = 'smaller';
+        b.innerHTML = currentObjArray[i].colorIs;
+
+        gridElement.appendChild(img);
+        gridElement.appendChild(h4);
+        gridElement.appendChild(b);
+        gridElement.appendChild(description);
+        gridElement.appendChild(addToCart);
+
+        grid.appendChild(gridElement);
     }
 }
 
+function addItemToCart(type, id) {
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    if (cart == null) {
+        cart = [];
+    }
+    cart.push({type: type, id: id});
+    localStorage.setItem('cart', JSON.stringify(cart));
+    console.log(cart);
+}
 
 function toggleMenu() {
     document.getElementsByClassName('menuContent')[0].classList.toggle('active');
@@ -170,4 +221,53 @@ function renderProducts(type) {
     for (let i = 0;i < products.type.length;i++) {
 
     }
+}
+
+function renderCart() {
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    let cartGrid = document.getElementById('cartGrid');
+    cartGrid.innerHTML = '';
+    if (cart == null) {
+        cart = [];
+    }
+
+    for (let i = 0;i < cart.length;i++) {
+        let result = getProperties(cart[i].type);
+        console.log(cart[i].type);
+        console.log(result);
+        let pathToProduct = result[0];
+        let currentObjArray = result[1];
+        let item = document.createElement('div');
+        item.classList.add('cartItem');
+        let img = document.createElement('img');
+        img.src = pathToProduct + cart[i].id + ').jpg';
+        let name = document.createElement('h4');
+        name.innerHTML = cart[i].type;
+        let remove = document.createElement('button');
+        remove.classList.add('remove');
+        remove.innerHTML = 'Remove';
+        remove.onclick = () => {removeItemFromCart(i)};
+        item.appendChild(img);
+        item.appendChild(name);
+        item.appendChild(remove);
+        cartGrid.appendChild(item);
+    }
+}
+
+function removeItemFromCart(id) {
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    cart.splice(id, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    renderCart();
+}
+
+
+function showItem(type,id) {
+    let itemGrid = document.getElementsByClassName('itemView')[0];
+    itemGrid.innerHTML = '';
+    let result = getProperties(type);
+    let pathToProduct = result[0];
+    let currentObjArray = result[1];
+    let item = document.createElement('div');
+
 }
