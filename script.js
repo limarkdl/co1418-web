@@ -117,171 +117,21 @@ const products = {
 }
 
 
-const grid = document.getElementById('productsGrid');
+const grid = document.getElementById('grid');
 
-const TShirt = 'UCLan_Tshirt';
-const Jumper = 'UCLan_Jumper';
-const Hoodie = 'UCLan_Hoodie';
-
-
-function getPathToProduct(product) {
-    switch (product) {
-        case 'Hoodie':
-            return '/hoodies/hoodie%20(';
-        case 'Jumper':
-            return '/jumpers/jumper%20(';
-        case 'TShirt':
-            return '/tshirt/tshirt%20(';
-        default:
-            console.log('ERROR');
-            return -1;
+function renderGrid() {
+    let el = `<div class="card" >
+                <img class="card-img-top" src="./hoodies/hoodie%20(4).jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Hoodie</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-secondary">Info</button>
+                        <button type="button"  class="btn text-white bg-success">Add to cart</button>
+                    </div>
+                </div>
+            </div>`;
+    for (let i = 0; i < 10; i++) {
+        grid.innerHTML += el;
     }
-}
-
-function getProperties(product) {
-    switch (product) {
-        case 'Hoodie' || 'UCLan Hoodie':
-            pathToProduct = '/hoodies/hoodie%20(';
-            currentObjArray = products.UCLan_Hoodie;
-            return [pathToProduct, currentObjArray];
-            break;
-        case 'Jumper' || 'UCLan Jumper':
-            pathToProduct = '/jumpers/jumper%20(';
-            currentObjArray = products.UCLan_Jumper;
-            return [pathToProduct, currentObjArray];
-            break;
-        case 'TShirt' || 'UCLan Tshirt':
-            pathToProduct = '/tshirt/tshirt%20(';
-            currentObjArray = products.UCLan_Tshirt;
-            return [pathToProduct, currentObjArray];
-            break;
-        default:
-            console.log('ERROR');
-            return -1;
-    }
-}
-
-function renderGrid(product) {
-    grid.innerHTML = '';
-    let result = getProperties(product);
-    let pathToProduct = result[0];
-    let currentObjArray = result[1];
-
-    for(let i = 1;i < currentObjArray.length;i++) {
-
-        let gridElement = document.createElement('div');
-        gridElement.classList.add('gridElement');
-
-        let description = document.createElement('p');
-        description.classList.add('productDesc');
-        description.style.fontSize = 'x-small';
-        description.innerHTML = currentObjArray[i].descriptionIs;
-
-        let addToCart = document.createElement('div');
-        addToCart.classList.add('addToCart');
-        addToCart.innerHTML = 'Add to cart';
-        addToCart.onclick = () => {addItemToCart(product, i)};
-        let img = document.createElement('img');
-        img.src = pathToProduct + i + ").jpg";
-        img.alt = "productPhoto";
-
-        let h4 = document.createElement('h4');
-        h4.innerHTML = "UCLan " + product;
-
-        let b = document.createElement('b');
-        b.style.fontSize = 'smaller';
-        b.innerHTML = currentObjArray[i].colorIs;
-
-        gridElement.appendChild(img);
-        gridElement.appendChild(h4);
-        gridElement.appendChild(b);
-        gridElement.appendChild(description);
-        gridElement.appendChild(addToCart);
-
-        grid.appendChild(gridElement);
-    }
-}
-
-function addItemToCart(type, id) {
-    let cart = JSON.parse(localStorage.getItem('cart'));
-    if (cart == null) {
-        cart = [];
-    }
-    cart.push({type: type, id: id});
-    localStorage.setItem('cart', JSON.stringify(cart));
-    console.log(cart);
-}
-
-
-function toggleMenu() {
-    document.getElementsByClassName('menuContent')[0].classList.toggle('active');
-}
-
-function itemAddToCart(product, index) {
-    let cart = JSON.parse(localStorage.getItem('cart'));
-    if (cart == null) {
-        cart = [];
-    }
-}
-
-function renderCart() {
-    let cart = JSON.parse(localStorage.getItem('cart'));
-    let cartGrid = document.getElementById('cartGrid');
-    cartGrid.innerHTML = '';
-    if (cart == null) {
-        cart = [];
-    }
-
-    for (let i = 0;i < cart.length;i++) {
-        let result = getProperties(cart[i].type);
-        console.log(cart[i].type);
-        console.log(result);
-        let pathToProduct = result[0];
-        let currentObjArray = result[1];
-        let item = document.createElement('div');
-        item.classList.add('cartItem');
-        let img = document.createElement('img');
-        img.src = pathToProduct + cart[i].id + ').jpg';
-        let name = document.createElement('h4');
-        name.innerHTML = cart[i].type;
-        let remove = document.createElement('button');
-        remove.classList.add('remove');
-        remove.innerHTML = 'Remove';
-        remove.onclick = () => {removeItemFromCart(i)};
-        item.appendChild(img);
-        item.appendChild(name);
-        item.appendChild(remove);
-        cartGrid.appendChild(item);
-    }
-}
-
-function removeItemFromCart(id) {
-    let cart = JSON.parse(localStorage.getItem('cart'));
-    cart.splice(id, 1);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    renderCart();
-}
-
-
-function showItem(type,id) {
-    let itemGrid = document.getElementsByClassName('itemView')[0];
-    itemGrid.innerHTML = '';
-    let result = getProperties(type);
-    let pathToProduct = result[0];
-    let currentObjArray = result[1];
-    let item = document.createElement('div');
-}
-
-function getCart() {
-    let cart = JSON.parse(localStorage.getItem('cart'));
-    if (cart == null) {
-        cart = [];
-    }
-    return cart;
-}
-
-function addItemToCart(product, index) {
-    let cart = getCart();
-    cart.push({ product: product, index: index });
-    localStorage.setItem('cart', JSON.stringify(cart));
 }

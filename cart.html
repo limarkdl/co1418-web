@@ -1,56 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
   <title>Cart</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="newStyle.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="palette.css">
 </head>
-<body onload="renderCart()">
-<div class="wrapper">
-  <header>
-    <div class="headerContainer">
-      <img class="headerContent" src="UCLan_Header.svg" alt="UCLan">
-      <h2 class="forWide">Student Shop</h2>
-    </div>
-    <div class="headerContainer">
-      <div class="menuContainer forWide">
-        <div class="menuElement"><a href="index.html">Home</a></div>
-        <div class="menuElement"><a href="products.html">Products</a></div>
-        <div class="menuElement"><a href="cart.html">Cart</a></div>
-      </div>
-      <div class="menuContainer forNarrow">
-        <img class="headerContent" src="menu.svg" onclick="toggleMenu()">
-      </div>
-    </div>
-  </header>
-  <main>
-    <div class="menuContent disabled">
-      <a href="index.html">Main page</a>
-      <a href="products.html">Products</a>
-      <a href="cart.html">Cart</a>
-    </div>
-    <div id="cartGrid"></div>
-  </main>
-  <footer>
-    <div class="footerHeader">Links:
-      <div class="footerHeaderContent">
-        <a href="https://www.uclansu.co.uk/" target="_blank">Student's Union</a>
-      </div>
-    </div>
-    <div class="footerHeader">Contact:
-      <div class="footerHeaderContent">
-        <p>Email: <a href="mailto:suinformation@uclan.ac.uk">suinformation@uclan.ac.uk</a><br>
-          Phone: 01772 89 3000</p>
-      </div>
-    </div>
-    <div class="footerHeader">Location:
-      <div class="footerHeaderContent"><p>University of Central Lancashire Students' Union.<br>Fylde Road, Preston, PR1 7BY
-        <br>Registered in England<br>Company Number: 7623917<br>Registered Charity Number: 1142616</p>
-      </div>
-    </div>
-  </footer>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: var(--primary-red)">
+  <a class="navbar-brand" href="#">
+    <img src="./UCLan_Header.svg" width="200" height="50" alt="Logo">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="./index.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="./products.html">Products</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="./cart.html">Cart <span class="badge bg-dark"> 0 </span> <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <h1>Welcome to my Bootstrap page!</h1>
+  <p>This is an example of a webpage using Bootstrap with an image logo in the navbar.</p>
 </div>
+
+
+<footer class="text-light py-3" style="background-color: var(--primary-grey)">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h3>Links</h3>
+        <ul class="list-unstyled">
+          <li><a href="#">Student Union</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h3>Contacts</h3>
+        <ul class="list-unstyled">
+          <li><a href="#">Our main website</a></li>
+          <li><a href="mailto:help@uclan.ac.uk" class="text-decoration-none">help@uclan.ac.uk</a></li>
+          <li></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h3>Location</h3>
+        <p>University of Central Lancashire Students' Union.<br>Fylde Road, Preston, PR1
+          7BY<br>Registered in England<br>Company Number: 7623917<br>Registered Charity Number: 1142616</p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
