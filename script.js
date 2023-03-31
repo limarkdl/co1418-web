@@ -1,4 +1,4 @@
-let products = {
+const products = {
     'UCLan_Tshirt': [
         { typeIs: 'UCLan Logo Tshirt', colorIs: 'Navy Blue New', descriptionIs: 'Cotton authentic character and practicality are combined in this summery t-shirt for students that goes with everything to create casual looks. Perfect for those summer days', priceIs: ' Only £19.99', imagesrcIs: 'tshirt/tshirt (1).jpg' },
         { typeIs: 'UCLan Logo Tshirt', colorIs: 'Rusty Red New', descriptionIs: 'Cotton authentic character and practicality are combined in this summery t-shirt for students that goes with everything to create casual looks. Perfect for those summer days', priceIs: ' Only £19.99', imagesrcIs: 'tshirt/tshirt (2).jpg' },
@@ -117,29 +117,56 @@ let products = {
 }
 
 
-function renderGrid(product) {
-    for(let i = 0;i < 15;i++) {
-        let el = document.createElement('div');
-        el.innerHTML = `<div id="products.UCLan_Hoodie[1]" class="gridElement">
-                <img src="/hoodies/hoodie%20(1).jpg" alt="productPhoto">
-                <h4>UCLan Hoodie</h4>
-                    <b style="font-size: smaller">Light Blue</b>
-                <p class="productDesc" style="font-size:x-small">Cotton authentic character and practicality are combined in this comfy
-                    warm and luxury hoodie for students that goes with everything to create casual looks</p>
-                    <div style="background-color: #006250" >Add to cart</div>
-            </div>`;
-        document.getElementById('productsGrid').appendChild(el);
-    }
-}
+const grid = document.getElementById('grid');
 
-
-function toggleMenu() {
-    document.getElementsByClassName('menuContent')[0].classList.toggle('active');
-}
-
-function renderProducts(type) {
-    let grid = document.getElementById('productsGrid');
-    for (let i = 0;i < products.type.length;i++) {
-
+function renderGrid() {
+    let el = `<div class="row gap-5">
+            <div class="col"><div class="card" >
+                <img class="card-img-top" src="./hoodies/hoodie%20(17).jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Hoodie</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-secondary">Info</button>
+                        <button type="button"  class="btn text-white bg-success">Add to cart</button>
+                    </div>
+                </div>
+            </div></div>
+            <div class="col"><div class="card" >
+                <img class="card-img-top" src="./hoodies/hoodie%20(18).jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Hoodie</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-secondary">Info</button>
+                        <button type="button"  class="btn text-white bg-success">Add to cart</button>
+                    </div>
+                </div>
+            </div></div>
+            <div class="col"><div class="card" >
+                <img class="card-img-top" src="./hoodies/hoodie%20(19).jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Hoodie</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-secondary">Info</button>
+                        <button type="button"  class="btn text-white bg-success">Add to cart</button>
+                    </div>
+                </div>
+            </div></div>
+            <div class="col"><div class="card" >
+                <img class="card-img-top" src="./hoodies/hoodie%20(20).jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Hoodie</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-secondary">Info</button>
+                        <button type="button"  class="btn text-white bg-success">Add to cart</button>
+                    </div>
+                </div>
+            </div></div>
+        </div>`;
+    for (let i = 0; i < 10; i++) {
+        grid.innerHTML += el;
     }
 }
