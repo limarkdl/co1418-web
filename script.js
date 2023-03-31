@@ -120,8 +120,9 @@ const products = {
 const grid = document.getElementById('grid');
 
 function renderGrid() {
-    let el = `<div class="card" >
-                <img class="card-img-top" src="./hoodies/hoodie%20(4).jpg" alt="Card image cap">
+    let el = `<div class="row gap-5">
+            <div class="col"><div class="card" >
+                <img class="card-img-top" src="./hoodies/hoodie%20(17).jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Hoodie</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -130,7 +131,41 @@ function renderGrid() {
                         <button type="button"  class="btn text-white bg-success">Add to cart</button>
                     </div>
                 </div>
-            </div>`;
+            </div></div>
+            <div class="col"><div class="card" >
+                <img class="card-img-top" src="./hoodies/hoodie%20(18).jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Hoodie</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-secondary">Info</button>
+                        <button type="button"  class="btn text-white bg-success">Add to cart</button>
+                    </div>
+                </div>
+            </div></div>
+            <div class="col"><div class="card" >
+                <img class="card-img-top" src="./hoodies/hoodie%20(19).jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Hoodie</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-secondary">Info</button>
+                        <button type="button"  class="btn text-white bg-success">Add to cart</button>
+                    </div>
+                </div>
+            </div></div>
+            <div class="col"><div class="card" >
+                <img class="card-img-top" src="./hoodies/hoodie%20(20).jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Hoodie</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-secondary">Info</button>
+                        <button type="button"  class="btn text-white bg-success">Add to cart</button>
+                    </div>
+                </div>
+            </div></div>
+        </div>`;
     for (let i = 0; i < 10; i++) {
         grid.innerHTML += el;
     }
