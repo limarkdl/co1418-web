@@ -117,56 +117,74 @@ const products = {
 }
 
 
+
+
+
+const importAnonymous = async () => {
+    const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+    const data = await response.json();
+    console.log(data);
+}
+
 const grid = document.getElementById('grid');
 
-function renderGrid() {
-    let el = `<div class="row gap-5">
-            <div class="col"><div class="card" >
-                <img class="card-img-top" src="./hoodies/hoodie%20(17).jpg" alt="Card image cap">
+function parserCSV() {
+    let myCSV = "";
+    fetch('https://raw.githubusercontent.com/limarkdl/my-storage-for-raws/main/UCLan_Merch_MOCK_DATA.csv')
+        .then(response =>
+        console.log(response.ok))
+        .then(data => { console.log(data); })
+        .catch(err => console.log(err));
+
+    console.log(myCSV);
+
+}
+
+
+
+function renderGrid(number) {
+    for (let i = 1; i <= number; i++) {
+        let el = `
+            <div class="col mb-3"><div class="card" >
+                <img class="card-img-top" src="./media/hoodies/hoodie%20(`+ i +`).jpg" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Hoodie</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <button type="button" class="btn btn-secondary">Info</button>
-                        <button type="button"  class="btn text-white bg-success">Add to cart</button>
+                        <button type="button" class="btn text-white bg-success" onclick="addToCart()">Add to cart</button>
                     </div>
                 </div>
-            </div></div>
-            <div class="col"><div class="card" >
-                <img class="card-img-top" src="./hoodies/hoodie%20(18).jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Hoodie</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-secondary">Info</button>
-                        <button type="button"  class="btn text-white bg-success">Add to cart</button>
-                    </div>
-                </div>
-            </div></div>
-            <div class="col"><div class="card" >
-                <img class="card-img-top" src="./hoodies/hoodie%20(19).jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Hoodie</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-secondary">Info</button>
-                        <button type="button"  class="btn text-white bg-success">Add to cart</button>
-                    </div>
-                </div>
-            </div></div>
-            <div class="col"><div class="card" >
-                <img class="card-img-top" src="./hoodies/hoodie%20(20).jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Hoodie</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" class="btn btn-secondary">Info</button>
-                        <button type="button"  class="btn text-white bg-success">Add to cart</button>
-                    </div>
-                </div>
-            </div></div>
-        </div>`;
-    for (let i = 0; i < 10; i++) {
+            </div></div>`;
         grid.innerHTML += el;
     }
 }
+
+let pathWay = null;
+function pathDefiner(type) {
+    switch (type) {
+        case 'UCLan_Hoodie':
+            pathWay = './hoodies/hoodie (1).jpg';
+            break;
+        case 'UCLan_Jumper':
+            pathWay = './jumpers/jumper (1).jpg';
+            break;
+        case 'UCLan_Tshirt':
+           pathWay = './tshirt/tshirt (1).jpg';
+        break;
+        default:
+            throw new Error('No such type');
+    }
+
+}
+
+function addToCart(type,id_of_product) {
+    alert('Added to cart');
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    if (cart == null) {
+        cart = [];
+    }
+
+
+}
+
